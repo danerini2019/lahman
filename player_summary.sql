@@ -16,7 +16,7 @@ WITH tA AS (
 	JOIN fielding f
 		ON p.playerID = f.playerID 
 	WHERE b.yearID > 2000
-	GROUP BY p.playerID)
+	GROUP BY p.playerID
 JOIN (
 	SELECT t1.playerID, t1.POS, t2.errors
 	FROM fielding
@@ -30,7 +30,17 @@ JOIN (
 	ORDER BY playerID
 ) AS tB
 ON tA.playerID = tB.playerID;
-	
-	
-	
+
+-- SELECT t1.playerID, t1.POS, t2.errors
+-- FROM fielding
+-- AS t1
+-- JOIN (
+-- 	SELECT playerID, MAX(G) AS games, SUM(E) AS errors
+-- 	FROM fielding
+-- 	GROUP BY playerID
+-- ) AS t2
+-- ON t1.playerID = t2.playerID AND t1.G = t2.games
+-- ORDER BY playerID;
+
+
 	
